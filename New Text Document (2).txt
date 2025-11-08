@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+int main() {
+	char text[100];
+	int choice,shift;
+	int i=0;
+	cout<<"enter text without spaces : ";
+	cin>>text;
+	cout<<"enter the shifting position : "<<endl;
+	cin>>shift;
+	cout<<"enter choice weather you wanna encrypt or decrypt : "<<endl;
+	cin>>choice;
+	shift=shift%26;
+	while(text[i]!='\0'){
+		char ch=text[i];
+		if(ch>='a'&&ch<='z'){
+			if(choice==1){
+				ch=(ch-'a'+shift)%26+'a';
+			}
+			else {
+				ch=(ch-'a'-shift+26)%26+'a';
+			}
+		}
+		else if(ch>='A'&&ch<='Z'){
+			if(choice==1){
+				ch=(ch-'A'+shift)%26+'A';
+			}
+			else {
+				ch=(ch-'Z'-shift+26)%26+'Z';
+			}
+		}
+		text[i]=ch;
+		i++;
+	}
+	if(choice==1){
+		cout<<"The encripted text is : "<<text<<endl;
+	}
+	else{
+		cout<<"The decrypted text is : "<<text<<endl;
+		}
+	return 0;
+}
+----------------------------------------------------------------------------------------------
+def fibonacci(n):
+    a, b = 0, 1
+    print("Fibonacci Series:")
+    for i in range(n):
+        print(a, end=" ")
+        a, b = b, a + b
+n_terms = int(input("Enter the number of terms: "))
+if n_terms <= 0:
+    print("Please enter a positive integer.")
+else:
+    fibonacci(n_terms)
